@@ -1,0 +1,17 @@
+* {
+    background-color: black;
+}
+body {
+    color: white;
+}
+.container-fluid {
+    padding-top: 50px;
+}
+
+.game-section{
+    background-color: white;
+}
+
+.lol-logo {
+    width: 750px;
+}
