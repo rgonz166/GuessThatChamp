@@ -35,4 +35,6 @@
                 remainingLetters--;
             }
         }
+        REMINDER: use chosen name to replace the displayed array correct answer to correct for capitalization in the beginning of names
+            *also use toLower() to check if letter is the same as chosen name despite upper or lower case.
     */
