@@ -24,3 +24,15 @@
     var setBlank = document.getElementById("blankName");
     setBlank.innerText = answerArray.join('');
     // print array
+    /*TODO 
+        1.add guessed letters array for user so they dont repeat letters
+        2.remaining guesses
+        3. start game, wins losses, has finished boolean
+        4. store guessed in var and check against name array using for loop, if matches, then replace that index with guess
+        for(var i=0; i < name.lenght; i++){
+            if(name[i] === guess){
+                answerArray[i] = guess;
+                remainingLetters--;
+            }
+        }
+    */
