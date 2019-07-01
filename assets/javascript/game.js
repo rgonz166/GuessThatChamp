@@ -15,7 +15,7 @@
     // Get empty spaces for random name
     for (var i=0; i < chosenName.length; i++){
         if(chosenName[i] === "'"){answerArray[i] = " ' ";}
-        else if(chosenName[i] === " "){answerArray[i] = "   ";}
+        else if(chosenName[i] === " "){answerArray[i] = " - ";}
         else if(chosenName[i] === "."){answerArray[i] = " . "}
         else{
             answerArray[i] = " _ ";
