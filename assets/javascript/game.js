@@ -90,8 +90,12 @@ window.onload = function(){
             if(arraysEqual()){
                 wins++;
                 winsText.innerText = wins;
-                alert("Congratulations! You won. Play another?");
-                resetGame();
+                // set timeout so confirm happens after setting text
+                setTimeout(function(){
+                    if(confirm("Congratulations! You won. Play another?")){
+                        resetGame();
+                    }
+                },10);
             }
         }
     }
