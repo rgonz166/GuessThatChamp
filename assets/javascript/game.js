@@ -30,27 +30,28 @@ window.onload = function(){
         answerArray = [];
         nameCheck = "";
         health = 10; 
+        healthText.innerText = health;
         
         // Get random name from array
     chosenName = championNames[Math.floor(Math.random()*championNames.length)];
 
+    console.log(chosenName);
     nameCheck = chosenName.replace(' ','-');
-    console.log(nameCheck);
     
     // Get empty spaces for random name
     for (var i=0; i < chosenName.length; i++){
         if(chosenName[i] === "'"){answerArray[i] = " ' ";}
         else if(chosenName[i] === " "){
-            answerArray[i] = " - ";
+            answerArray[i] = "-";
     }
         else if(chosenName[i] === "."){answerArray[i] = " . "}
         else{
             answerArray[i] = " _ ";
         }
     }
-    console.log(nameCheck);
+
     chosenNameLower = chosenName.toLowerCase();
-    console.log(chosenNameLower);
+    
     setBlank.innerText = answerArray.join('');
 
     guesses = [];
@@ -119,9 +120,6 @@ window.onload = function(){
                 differentLetters++;
             }
         }
-        console.log(differentLetters);
-        console.log(nameCheck);
-        console.log(answerArray.join(''));
         if(differentLetters > 0){
             return false;
         }
@@ -135,8 +133,10 @@ window.onload = function(){
             revealAnswer();
             losses++;
             lossesText.innerText = losses;
-            setTimeout(function{
-                alert("Game Over! You lost");
+            setTimeout(function(){
+                if(confirm("Game Over! You lost. Play Again?")){
+                    resetGame();
+                }
             },10);
             
         }
