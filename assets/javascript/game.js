@@ -7,6 +7,7 @@
     // var championNames = ["Miss Fortune", "Jarvan IV", "Dr. Mundo","Kog'Maw"]
 
     var chosenName = "";
+    var chosenNameLower = "";
     var answerArray = [];
     var guesses = [];
     var userGuess = "";
@@ -18,6 +19,7 @@
     
     // Get random name from array
     var chosenName = championNames[Math.floor(Math.random()*championNames.length)];
+    chosenNameLower = chosenName.toLowerCase();
     console.log(chosenName);
     
     // Get empty spaces for random name
@@ -34,7 +36,7 @@
 
     document.onkeyup = function(event) {
         userGuess = event.key;
-        checkGuesses(userGuess);
+        checkGuesses(userGuess.toLowerCase());
     }
 
     // check if letter has been used
@@ -60,7 +62,7 @@
         // boolean to check if array has letter
         hasLetter = false;
         for(var i=0;i<chosenName.length;i++){
-            if(guess === chosenName[i]){
+            if(guess === chosenNameLower[i]){
                 answerArray[i] = chosenName[i];
                 hasLetter=true;
             }
