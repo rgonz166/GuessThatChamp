@@ -148,11 +148,7 @@ window.onload = function(){
         }
         setBlank.innerText = answerArray.join('');
     }
-
-    // print array
-    /*TODO 
-        * start game, wins losses, has finished boolean
-        * store guessed in var and check against name array using for loop, if matches, then replace that index with guess
+/*
         * integrate letters for mobile under certain screen size
         * 
     */

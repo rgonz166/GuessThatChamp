@@ -1,23 +1,28 @@
-* {
-    background-color: black;
-}
+
 body {
     color: white;
     font-family: 'Roboto Slab', serif;
+    background-image: url(../images/Dark-Grey-bg.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 p{
     font-size: 2.5vw;
+
 }
 .container-fluid {
     padding-top: 50px;
 }
 
 .game-section{
-    background-color: white;
+    /* background-color: white; */
 }
 
 .lol-logo {
     width: 750px;
     max-width: 100%;
     height: auto;
+}
+#letters-used{
+
 }
