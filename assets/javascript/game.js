@@ -20,9 +20,11 @@
     var healthText = document.getElementById("health-text");
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
-
-    
-    // Get random name from array
+window.onload = function(){
+    resetGame();
+}
+    function resetGame(){
+            // Get random name from array
     chosenName = championNames[Math.floor(Math.random()*championNames.length)];
     chosenNameLower = chosenName.toLowerCase();
     console.log(chosenName);
@@ -38,6 +40,10 @@
     }
     
     setBlank.innerText = answerArray.join('');
+
+    guesses = [];
+    lettersUsed.innerText = guesses.join("");
+    }
 
     document.onkeyup = function(event) {
         userGuess = event.key;
@@ -80,19 +86,37 @@
         }
         else{
             setBlank.innerText = answerArray.join('');
-            if(answerArray === chosenName){
+            // check if equals array
+            if(arraysEqual()){
                 wins++;
-                alert("Congratulations! You won. Play another?");
                 winsText.innerText = wins;
+                alert("Congratulations! You won. Play another?");
+                resetGame();
             }
         }
     }
+
+    function arraysEqual() {
+        var differentLetters = 0;
+        for(var i=0; i < chosenName.length;i++){
+            if(!(answerArray[i] === chosenName[i])){
+                differentLetters++;
+            }
+        }
+        if(differentLetters > 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
     function checkHealth(){
         if(health <= 0){
             revealAnswer();
             losses++;
-            alert("Game Over! You lost");
             lossesText.innerText = losses;
+            alert("Game Over! You lost");
         }
     }
 
