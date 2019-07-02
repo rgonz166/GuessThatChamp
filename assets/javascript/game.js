@@ -1,13 +1,15 @@
 // Declare variables
     //List of League of Legends champions from 2012
-    var championNames = ["Ahri", "Akali", "Alistar", "Amumu", "Anivia", "Annie", "Ashe", "Blitzcrank", "Brand", "Caitlyn", "Cassiopeia", "Cho'gath", "Corki", "Dr. Mundo", "Evelynn", "Ezreal", "Fiddlesticks", "Fiora", "Fizz", "Galio", "Gangplank", "Garen", "Gragas", "Graves", "Hecarim", "Heimerdinger", "Irelia", "Janna", "Jarvan IV", "Jax", "Karma", "Karthus", "Kassadin", "Katarina", "Kayle", "Kennen", "Kog'Maw", "LeBlanc", "Lee Sin", "Leona", "Lulu", "Lux", "Malphite", "Malzahar", "Maokai", "Master Yi", "Miss Fortune", "Mordekaiser", "Morgana", "Nasus", "Nautilus", "Nidalee", "Nocturne", "Nunu", "Olaf", "Orianna", "Pantheon", "Poppy", "Rammus", "Renekton", "Riven", "Rumble", "Ryze", "Sejuani", "Shaco", "Shen", "Shyvana", "Singed", "Sion", "Sivir", "Skarner", "Sona", "Soraka", "Swain", "Talon", "Taric", "Teemo", "Tristana", "Trundle", "Trydamere", "Twisted Fate", "Twitch", "Udyr", "Urgot", "Varus", "Vayne", "Veigar", "Viktor", "Vladimir", "Volibear", "Warwick", "Wukong", "Xerath", "Xin Zhao", "Yorick", "Ziggs", "Zilean"]
+    // var championNames = ["Ahri", "Akali", "Alistar", "Amumu", "Anivia", "Annie", "Ashe", "Blitzcrank", "Brand", "Caitlyn", "Cassiopeia", "Cho'gath", "Corki", "Dr. Mundo", "Evelynn", "Ezreal", "Fiddlesticks", "Fiora", "Fizz", "Galio", "Gangplank", "Garen", "Gragas", "Graves", "Hecarim", "Heimerdinger", "Irelia", "Janna", "Jarvan IV", "Jax", "Karma", "Karthus", "Kassadin", "Katarina", "Kayle", "Kennen", "Kog'Maw", "LeBlanc", "Lee Sin", "Leona", "Lulu", "Lux", "Malphite", "Malzahar", "Maokai", "Master Yi", "Miss Fortune", "Mordekaiser", "Morgana", "Nasus", "Nautilus", "Nidalee", "Nocturne", "Nunu", "Olaf", "Orianna", "Pantheon", "Poppy", "Rammus", "Renekton", "Riven", "Rumble", "Ryze", "Sejuani", "Shaco", "Shen", "Shyvana", "Singed", "Sion", "Sivir", "Skarner", "Sona", "Soraka", "Swain", "Talon", "Taric", "Teemo", "Tristana", "Trundle", "Trydamere", "Twisted Fate", "Twitch", "Udyr", "Urgot", "Varus", "Vayne", "Veigar", "Viktor", "Vladimir", "Volibear", "Warwick", "Wukong", "Xerath", "Xin Zhao", "Yorick", "Ziggs", "Zilean"]
 
+    var championNames = ["Lee Sin", "Some Guy", "Twisted Fate"]
     
 
     var chosenName = "";
     var chosenNameLower = "";
     var userGuess = "";
     var answerArray = [];
+    var nameCheck = "";
     var guesses = [];
     var health = 10;
     var wins = 0;
@@ -24,22 +26,31 @@ window.onload = function(){
     resetGame();
 }
     function resetGame(){
-            // Get random name from array
+        //Reset variables
+        answerArray = [];
+        nameCheck = "";
+        health = 10; 
+        
+        // Get random name from array
     chosenName = championNames[Math.floor(Math.random()*championNames.length)];
-    chosenNameLower = chosenName.toLowerCase();
-    console.log(chosenName);
-    answerArray = [];
+
+    nameCheck = chosenName.replace(' ','-');
+    console.log(nameCheck);
     
     // Get empty spaces for random name
     for (var i=0; i < chosenName.length; i++){
         if(chosenName[i] === "'"){answerArray[i] = " ' ";}
-        else if(chosenName[i] === " "){answerArray[i] = " - ";}
+        else if(chosenName[i] === " "){
+            answerArray[i] = " - ";
+    }
         else if(chosenName[i] === "."){answerArray[i] = " . "}
         else{
             answerArray[i] = " _ ";
         }
     }
-    
+    console.log(nameCheck);
+    chosenNameLower = chosenName.toLowerCase();
+    console.log(chosenNameLower);
     setBlank.innerText = answerArray.join('');
 
     guesses = [];
@@ -104,10 +115,13 @@ window.onload = function(){
     function arraysEqual() {
         var differentLetters = 0;
         for(var i=0; i < chosenName.length;i++){
-            if(!(answerArray[i] === chosenName[i])){
+            if(!(answerArray[i] == nameCheck[i])){
                 differentLetters++;
             }
         }
+        console.log(differentLetters);
+        console.log(nameCheck);
+        console.log(answerArray.join(''));
         if(differentLetters > 0){
             return false;
         }
@@ -121,7 +135,10 @@ window.onload = function(){
             revealAnswer();
             losses++;
             lossesText.innerText = losses;
-            alert("Game Over! You lost");
+            setTimeout(function{
+                alert("Game Over! You lost");
+            },10);
+            
         }
     }
 
