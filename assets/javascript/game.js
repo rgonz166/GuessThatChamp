@@ -28,6 +28,7 @@ window.onload = function(){
     chosenName = championNames[Math.floor(Math.random()*championNames.length)];
     chosenNameLower = chosenName.toLowerCase();
     console.log(chosenName);
+    answerArray = [];
     
     // Get empty spaces for random name
     for (var i=0; i < chosenName.length; i++){
