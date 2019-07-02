@@ -25,26 +25,31 @@
                 <div class="col-sm text-center">
                     <img src="assets/images/logos/Name-that-champ-logo.png" class="lol-logo">
                     <!-- nested rows and columns -->
-                    <section class="row justify-content-md-center game-section">
+                    <section class="row justify-content-sm-center game-section">
                         <div class="col-sm">
-                            <h4>(Spaces will be displayed as " - ")</h4>
-                            <p id="blankName">t</p>
-                            <script src="assets/javascript/game.js">startGame();</script>
+                            <p>(Spaces will be displayed as " - ")</p>
+                            <p id="blankName"></p>
                             
                         </div>
                     </section>
-                    <div class="row justify-content-md-center score-area">
+                    <div class="row justify-content-sm-center score-area">
+                        <div class="health col-sm-2">Health = <span id="health-text">10</span></div>
+                    </div>
+                    <div class="row justify-content-sm-center score-area">
                         <!-- win section -->
-                        <div class="wins col-sm-4">
+                        <div class="wins col-sm-2">
                             Wins:0
                         </div>
-                        <div class="losses col-sm-4">
+                        <!-- Loss section -->
+                        <div class="losses col-sm-2">
                             Losses:0
                         </div>
                     </div>
+                    <div class="row justify-content-sm-center" id="letters-used"></div>
                 </div>
             </div>
         </div>
+        <script src="assets/javascript/game.js">startGame();</script>
         <!-- End of main container -->
     </body>
 </html>
