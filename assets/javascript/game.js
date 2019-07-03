@@ -75,8 +75,8 @@ window.onload = function(){
             alert("You guessed that letter already! Choose another letter.");
         }
         else{
-            guesses.push(guess + " ");
-            lettersUsed.innerText = guesses.join("");
+            guesses.push(guess);
+            lettersUsed.innerText = (guesses.join("") + " ");
             compareGuess(guess);
         }
     }
