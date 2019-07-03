@@ -72,10 +72,10 @@ window.onload = function(){
             }
         }
         if(hasLetter){
-            alert("You have guessed that letter already! Choose another letter.");
+            alert("You guessed that letter already! Choose another letter.");
         }
         else{
-            guesses.push(guess);
+            guesses.push(guess + " ");
             lettersUsed.innerText = guesses.join("");
             compareGuess(guess);
         }
@@ -127,7 +127,7 @@ window.onload = function(){
             return true;
         }
     }
-
+    // Function to check for health
     function checkHealth(){
         if(health <= 0){
             revealAnswer();
