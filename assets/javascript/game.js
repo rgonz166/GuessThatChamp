@@ -8,8 +8,8 @@
     var chosenName = "";
     var chosenNameLower = "";
     var userGuess = "";
-    var answerArray = [];
     var nameCheck = "";
+    var answerArray = [];
     var guesses = [];
     var health = 10;
     var wins = 0;
@@ -148,7 +148,3 @@ window.onload = function(){
         }
         setBlank.innerText = answerArray.join('');
     }
-/*
-        * integrate letters for mobile under certain screen size
-        * 
-    */
