@@ -1,8 +1,8 @@
 // Declare variables
     //List of League of Legends champions from 2012
-    var championNames = ["Ahri", "Akali", "Alistar", "Amumu", "Anivia", "Annie", "Ashe", "Blitzcrank", "Brand", "Caitlyn", "Cassiopeia", "Cho'gath", "Corki", "Dr. Mundo", "Evelynn", "Ezreal", "Fiddlesticks", "Fiora", "Fizz", "Galio", "Gangplank", "Garen", "Gragas", "Graves", "Hecarim", "Heimerdinger", "Irelia", "Janna", "Jarvan IV", "Jax", "Karma", "Karthus", "Kassadin", "Katarina", "Kayle", "Kennen", "Kog'Maw", "LeBlanc", "Lee Sin", "Leona", "Lulu", "Lux", "Malphite", "Malzahar", "Maokai", "Master Yi", "Miss Fortune", "Mordekaiser", "Morgana", "Nasus", "Nautilus", "Nidalee", "Nocturne", "Nunu", "Olaf", "Orianna", "Pantheon", "Poppy", "Rammus", "Renekton", "Riven", "Rumble", "Ryze", "Sejuani", "Shaco", "Shen", "Shyvana", "Singed", "Sion", "Sivir", "Skarner", "Sona", "Soraka", "Swain", "Talon", "Taric", "Teemo", "Tristana", "Trundle", "Trydamere", "Twisted Fate", "Twitch", "Udyr", "Urgot", "Varus", "Vayne", "Veigar", "Viktor", "Vladimir", "Volibear", "Warwick", "Wukong", "Xerath", "Xin Zhao", "Yorick", "Ziggs", "Zilean"]
+    // var championNames = ["Ahri", "Akali", "Alistar", "Amumu", "Anivia", "Annie", "Ashe", "Blitzcrank", "Brand", "Caitlyn", "Cassiopeia", "Cho'gath", "Corki", "Dr. Mundo", "Evelynn", "Ezreal", "Fiddlesticks", "Fiora", "Fizz", "Galio", "Gangplank", "Garen", "Gragas", "Graves", "Hecarim", "Heimerdinger", "Irelia", "Janna", "Jarvan IV", "Jax", "Karma", "Karthus", "Kassadin", "Katarina", "Kayle", "Kennen", "Kog'Maw", "LeBlanc", "Lee Sin", "Leona", "Lulu", "Lux", "Malphite", "Malzahar", "Maokai", "Master Yi", "Miss Fortune", "Mordekaiser", "Morgana", "Nasus", "Nautilus", "Nidalee", "Nocturne", "Nunu", "Olaf", "Orianna", "Pantheon", "Poppy", "Rammus", "Renekton", "Riven", "Rumble", "Ryze", "Sejuani", "Shaco", "Shen", "Shyvana", "Singed", "Sion", "Sivir", "Skarner", "Sona", "Soraka", "Swain", "Talon", "Taric", "Teemo", "Tristana", "Trundle", "Trydamere", "Twisted Fate", "Twitch", "Udyr", "Urgot", "Varus", "Vayne", "Veigar", "Viktor", "Vladimir", "Volibear", "Warwick", "Wukong", "Xerath", "Xin Zhao", "Yorick", "Ziggs", "Zilean"]
 
-    // var championNames = ["Lee Sin", "Some Guy", "Twisted Fate"]
+    var championNames = ["Dr. Mundo","Twisted Fate"];
     
 
     var chosenName = "";
@@ -22,6 +22,7 @@
     var healthText = document.getElementById("health-text");
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
+
 window.onload = function(){
     resetGame();
 }
@@ -44,7 +45,7 @@ window.onload = function(){
         else if(chosenName[i] === " "){
             answerArray[i] = "-";
     }
-        else if(chosenName[i] === "."){answerArray[i] = " . "}
+        else if(chosenName[i] === "."){answerArray[i] = "."}
         else{
             answerArray[i] = " _ ";
         }
@@ -52,7 +53,7 @@ window.onload = function(){
 
     chosenNameLower = chosenName.toLowerCase();
     
-    setBlank.innerText = answerArray.join('');
+    setBlank.innerText = answerArray.join('').replace('-', "   ");
 
     guesses = [];
     lettersUsed.innerText = guesses.join("");
@@ -98,7 +99,7 @@ window.onload = function(){
             checkHealth();
         }
         else{
-            setBlank.innerText = answerArray.join('');
+            setBlank.innerText = answerArray.join('').replace('-',"   ");
             // check if equals array
             if(arraysEqual()){
                 wins++;
@@ -146,5 +147,5 @@ window.onload = function(){
         for(var i=0;i<chosenName.length;i++){
             answerArray[i] = chosenName[i];
         }
-        setBlank.innerText = answerArray.join('');
+        setBlank.innerText = answerArray.join('').replace('-',"   ");
     }
