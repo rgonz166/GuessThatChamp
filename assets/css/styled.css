@@ -5,6 +5,7 @@ body {
     background-image: url(../images/Dark-Grey-bg.jpeg);
     background-repeat: no-repeat;
     background-size: 100%;
+    object-fit: cover;
 }
 p{
     font-size: 2.5vw;
@@ -14,15 +15,12 @@ p{
     padding-top: 50px;
 }
 
-.game-section{
-    /* background-color: white; */
-}
-
 .lol-logo {
     width: 750px;
     max-width: 100%;
     height: auto;
 }
-#letters-used{
-
+button{
+    width: 200px;
+    height: auto;
 }
