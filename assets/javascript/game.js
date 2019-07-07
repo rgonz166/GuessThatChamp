@@ -34,6 +34,8 @@ window.onload = function(){
         health = 10; 
         healthText.innerText = health;
         healthBar.style.width = (health*10) +'%';
+        healthBar.innerText = (health*10) + '%';
+        healthBar.className = "progress-bar center-block bg-success";
         
         // Get random name from array
     chosenName = championNames[Math.floor(Math.random()*championNames.length)];
@@ -99,6 +101,13 @@ window.onload = function(){
             health--;
             healthText.textContent = health;
             healthBar.style.width = (health*10) +'%';
+            healthBar.innerText = (health*10) + '%';
+            if(health > 3 && health <=5){
+                healthBar.className = "progress-bar center-block bg-warning";
+            }
+            else if(health <= 3){
+                healthBar.className = "progress-bar center-block bg-danger";
+            }
             checkHealth();
         }
         else{
