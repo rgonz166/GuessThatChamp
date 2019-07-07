@@ -22,6 +22,7 @@
     var healthText = document.getElementById("health-text");
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
+    var healthBar = document.getElementById("health-bar");
 
 window.onload = function(){
     resetGame();
@@ -32,6 +33,7 @@ window.onload = function(){
         nameCheck = "";
         health = 10; 
         healthText.innerText = health;
+        healthBar.style.width = (health*10) +'%';
         
         // Get random name from array
     chosenName = championNames[Math.floor(Math.random()*championNames.length)];
@@ -96,6 +98,7 @@ window.onload = function(){
         if(!hasLetter){
             health--;
             healthText.textContent = health;
+            healthBar.style.width = (health*10) +'%';
             checkHealth();
         }
         else{
@@ -114,13 +117,16 @@ window.onload = function(){
         }
     }
 
+    // Checks if array equals array, if it does, then return true
     function arraysEqual() {
+        // Flag to check if differences appear
         var differentLetters = 0;
         for(var i=0; i < chosenName.length;i++){
             if(!(answerArray[i] == nameCheck[i])){
                 differentLetters++;
             }
         }
+        // if greater than zero return false 
         if(differentLetters > 0){
             return false;
         }
