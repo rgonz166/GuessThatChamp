@@ -12,7 +12,8 @@ body {
     background-position: center center;
 }
 p{
-    font-size: 2.5vw;
+    font-size: 16px;
+    
 
 }
 .container-fluid {
@@ -39,4 +40,7 @@ p{
 }
 .letters-used-text{
     font-size: 2vw;
+}
+#blankName {
+    font-size: 40px;
 }
