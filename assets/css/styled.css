@@ -34,3 +34,9 @@ p{
     margin-right:auto; 
     height: 20px;
 }
+.score-area{
+    padding-bottom: 10px;
+}
+.letters-used-text{
+    font-size: 2vw;
+}

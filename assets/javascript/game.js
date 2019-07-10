@@ -27,9 +27,9 @@
     var healthBar = document.getElementById("health-bar");
 
 window.onload = function(){
-    resetGame();
+    newGame();
 }
-    function resetGame(){
+    function newGame(){
         //Reset variables
         answerArray = [];
         nameCheck = "";
@@ -63,6 +63,11 @@ window.onload = function(){
 
     guesses = [];
     lettersUsed.innerText = guesses.join("");
+    }
+    function resetGame(){
+        losses++;
+        lossesText.innerText = losses;
+        newGame();
     }
 
     // When Key is Pressed run this
@@ -137,7 +142,7 @@ window.onload = function(){
                 // set timeout so confirm happens after setting text
                 setTimeout(function(){
                     if(confirm("Congratulations! You won. Play another?")){
-                        resetGame();
+                        newGame();
                     }
                 },10);
             }
@@ -169,7 +174,7 @@ window.onload = function(){
             lossesText.innerText = losses;
             setTimeout(function(){
                 if(confirm("Game Over! You lost. Play Again?")){
-                    resetGame();
+                    newGame();
                 }
             },10);
             

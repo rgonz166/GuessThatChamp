@@ -49,12 +49,19 @@
                         <!-- Loss section -->
                         <div class="col-sm-2">Losses: <span id="losses-text">0</span></div>
                     </div>
-                    <div class="row justify-content-sm-center"><h4>Letters Used</h4></div>
-                    <div class="row justify-content-sm-center" id="letters-used"></div>
-                    <div class="row justify-content-sm-center">
-                        <button type="button" class="btn btn-outline-primary col-sm-4" onclick="resetGame()">New Game</button>
-                        <a href = 'https://github.com/rgonz166/GuessThatChamp' target="_blank" class="col-sm-4"><button type="button" class="btn btn-outline-warning">Game Repo</button></a>
+                    <!-- Letters used -->
+                    <div class="row justify-content-sm-center letters-used-text">
+                        <h5 class="col-sm-4">Letters Used</h5>
                     </div>
+                    <div class="row justify-content-sm-center">
+                        <p class="col-sm-12" id="letters-used"></p>
+                    </div>
+                    <!-- Mobile Letters -->
+                    <div class="letters"></div>
+                    <!-- buttons -->
+                    <div class="row justify-content-sm-center" id="buttons"></div>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="resetGame()">New Name</button>
+                    <a href="https://github.com/rgonz166/GuessThatChamp" target="_blank"><button type="button" class="btn btn-warning btn-sm">Game Repo</button></a>
                 </div>
             </div>
         </div>
