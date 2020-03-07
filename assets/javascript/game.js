@@ -25,6 +25,7 @@
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
     var healthBar = document.getElementById("health-bar");
+    var gameLetters = $('.letters');
 
 window.onload = function(){
     newGame();
@@ -39,6 +40,7 @@ window.onload = function(){
         healthBar.innerText = (health*10) + '%';
         healthBar.className = "progress-bar center-block bg-success";
         isLetter = false;
+        loadLetters();
         
         // Get random name from array
     chosenName = championNames[Math.floor(Math.random()*championNames.length)];
@@ -80,6 +82,7 @@ window.onload = function(){
             }
         }
         if(isLetter){
+            disableButton(userGuess);
             checkGuesses(userGuess);
         }
         else{
@@ -87,6 +90,21 @@ window.onload = function(){
         }
     }
     // TODO: ADD BUTTON FUNCTIONALITY FOR MOBILE
+    function loadLetters(){
+        gameLetters.empty();
+        for(var i=0;i<letters.length;i++){
+            gameLetters.append('<button type="button" id="letter' + letters[i] + '" class="btn btn-outline-warning btn-sm game-letters" value="' + letters[i] +'" onClick="letterOnClick(this.value)">'+letters[i]+'</button>')
+        }
+    }
+
+    function disableButton(letter){
+        $('#letter'+letter).attr('disabled',true);
+    }
+
+    function letterOnClick(value){
+        disableButton(value);
+        checkGuesses(value);
+    }
 
     // check if letter has been used
     function checkGuesses(guess){
