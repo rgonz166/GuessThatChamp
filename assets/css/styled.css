@@ -44,3 +44,10 @@ p{
 #blankName {
     font-size: 40px;
 }
+
+#buttons{
+    padding-top: 10px;
+}
+.game-letters{
+    margin: 0px 2px;
+}
