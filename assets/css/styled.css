@@ -48,6 +48,10 @@ p{
 #buttons{
     padding-top: 10px;
 }
+.letters{
+    padding-left: 100px;
+    padding-right: 100px;
+}
 .game-letters{
-    margin: 0px 2px;
+    margin: 5px;
 }

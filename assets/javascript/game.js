@@ -93,12 +93,13 @@ window.onload = function(){
     function loadLetters(){
         gameLetters.empty();
         for(var i=0;i<letters.length;i++){
-            gameLetters.append('<button type="button" id="letter' + letters[i] + '" class="btn btn-outline-warning btn-sm game-letters" value="' + letters[i] +'" onClick="letterOnClick(this.value)">'+letters[i]+'</button>')
+            gameLetters.append('<button type="button" id="letter' + letters[i] + '" class="btn btn-outline-warning btn-sm game-letters" value="' + letters[i] +'" onClick="letterOnClick(this.value)">'+letters[i].toUpperCase()+'</button>')
         }
     }
 
     function disableButton(letter){
         $('#letter'+letter).attr('disabled',true);
+        $('#letter' + letter).toggleClass('btn-outline-warning', 'btn-outline-secondary');
     }
 
     function letterOnClick(value){
